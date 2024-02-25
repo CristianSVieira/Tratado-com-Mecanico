@@ -1,4 +1,4 @@
-import React, from 'react';
+import React from 'react';
 import {
   SafeAreaView,
   StatusBar,
@@ -8,21 +8,34 @@ import {
   View,
 } from 'react-native';
 
-class Formulário__Código extends React.Component {
+class FormulárioCódigo extends React.Component {
 
     constructor(propriedades) {
       super(propriedades)
       this.state = {
-        códigoDeServiço: ''
+        códigoDeServiço: '',
+        erroCódigoDeServiço: ''
       }
+
+      
     }
 
     render() { 
+      const regexCódigoDeServiço = new RegExp('[a-zA-Z0-9]')
+      var códigoVálido = '1q2w3e'
+
       return (
         <SafeAreaView style={custom.fundo}>
           <StatusBar barStyle={'light-content'}/>
 
-          <View style={ { display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'flex-end' } }>
+          <View style=
+            {{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              flex: 1, 
+              justifyContent: 'flex-end' 
+            }}
+          >
             <View>
               <Text 
                 style={custom.texto_destacado}
@@ -53,12 +66,30 @@ class Formulário__Código extends React.Component {
                 style={custom.intro} 
                 placeholder='Código de serviço'
                 cursorColor={'coral'}
+                autoCapitalize='none'
                 value={this.state.códigoDeServiço}
-                onChangeText={(texto) => this.setState({códigoDeServiço: texto}) }
+                onChangeText={(texto) => {
+                  this.setState({códigoDeServiço: texto}, () => {
+                    var códigoTratado = this.state.códigoDeServiço.replaceAll(' ', '');
+
+                    if (códigoTratado.length == 6 || códigoTratado.length > 6) {
+                      if (regexCódigoDeServiço.test(códigoTratado) && códigoTratado.length == 6 && códigoTratado === códigoVálido) {
+                        this.setState({erroCódigoDeServiço: 'CÓDIGO CORRECTO'})
+                      }
+                      else {
+                        this.setState({erroCódigoDeServiço: 'O código está demasiado grande!'})
+                      }
+                    } else {
+                      this.setState({erroCódigoDeServiço: ''})
+                    }
+                  });
+                }}
               >
                   
               </TextInput>
+
             </View>
+              <Text>{this.state.erroCódigoDeServiço}</Text>
           </View>
 
           <View style=
@@ -102,4 +133,4 @@ const custom = StyleSheet.create({
   }
 });
 
-export default Formulário__Código;
+export default FormulárioCódigo;
