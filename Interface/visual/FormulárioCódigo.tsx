@@ -14,7 +14,7 @@ class FormulárioCódigo extends React.Component {
       super(propriedades)
       this.state = {
         códigoDeServiço: '',
-        erroCódigoDeServiço: ''
+        erroCódigoDeServiço: 'Introduza o código de serviço'
       }
 
       
@@ -74,13 +74,13 @@ class FormulárioCódigo extends React.Component {
 
                     if (códigoTratado.length == 6 || códigoTratado.length > 6) {
                       if (regexCódigoDeServiço.test(códigoTratado) && códigoTratado.length == 6 && códigoTratado === códigoVálido) {
-                        this.setState({erroCódigoDeServiço: 'CÓDIGO CORRECTO'})
+                        this.setState({erroCódigoDeServiço: 'Código correcto!'})
                       }
                       else {
                         this.setState({erroCódigoDeServiço: 'O código está demasiado grande!'})
                       }
                     } else {
-                      this.setState({erroCódigoDeServiço: ''})
+                      this.setState({erroCódigoDeServiço: 'Introduza o código de serviço'})
                     }
                   });
                 }}
@@ -89,17 +89,34 @@ class FormulárioCódigo extends React.Component {
               </TextInput>
 
             </View>
-              <Text>{this.state.erroCódigoDeServiço}</Text>
+            
           </View>
 
           <View style=
             {{ 
               display: 'flex', 
               flexDirection: 'column', 
-              flex: 1, 
-              justifyContent: 'flex-end' 
+              flex: 1,
+              justifyContent: 'flex-start' 
             }}
           >
+            <View style=
+              {{
+                backgroundColor: 'black',
+                padding: '1%',
+                //borderRadius: 3,
+                // alignSelf: 'center'
+              }}>
+
+              <Text style=
+              {{
+                textAlign: 'center',
+                color: 'white',
+                fontWeight: '200',
+              }}>
+                {this.state.erroCódigoDeServiço}
+              </Text>
+            </View>
           </View>
         </SafeAreaView>
       );
