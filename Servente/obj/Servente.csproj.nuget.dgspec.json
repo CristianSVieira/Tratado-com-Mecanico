@@ -1,0 +1,75 @@
+{
+  "format": 1,
+  "restore": {
+    "/Volumes/EXT/Desenvolvimento/KRSTTMC/Servente/Servente.csproj": {}
+  },
+  "projects": {
+    "/Volumes/EXT/Desenvolvimento/KRSTTMC/Servente/Servente.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Volumes/EXT/Desenvolvimento/KRSTTMC/Servente/Servente.csproj",
+        "projectName": "Servente",
+        "projectPath": "/Volumes/EXT/Desenvolvimento/KRSTTMC/Servente/Servente.csproj",
+        "packagesPath": "/Users/vilantino/.nuget/packages/",
+        "outputPath": "/Volumes/EXT/Desenvolvimento/KRSTTMC/Servente/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/vilantino/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "/Users/vilantino/.vscode-dotnet-sdk/.dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/Users/vilantino/.vscode-dotnet-sdk/.dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
